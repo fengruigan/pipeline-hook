@@ -9,11 +9,11 @@ app.get("/", (req, res) => {
     res.send("hi");
 });
 
-app.post("/", (req, res) => {
+app.post("/", async (req, res) => {
     console.log(req.body);
     let msg = {};
     msg.content = JSON.stringify(req.body);
-    axios.post(process.env.DISCORD_HOOK, msg);
+    await axios.post(process.env.DISCORD_HOOK, msg);
     res.send("OK");
 });
 
