@@ -1,0 +1,28 @@
+{
+    "name": "pipeline-hook",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fengruigan/pipeline-hook.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/fengruigan/pipeline-hook/issues"
+    },
+    "homepage": "https://github.com/fengruigan/pipeline-hook#readme",
+    "dependencies": {
+        "eslint": "^8.7.0",
+        "eslint-config-prettier": "^8.3.0",
+        "express": "^4.17.2",
+        "prettier": "^2.5.1",
+        "yarn": "^1.22.17"
+    }
+}
