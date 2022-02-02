@@ -12,12 +12,20 @@ app.get("/", (req, res) => {
 app.post("/", async (req, res) => {
     console.log(req.body);
     let original = req.body;
+    let ref = original.ref;
+    let split = ref.split("/");
+    let branch = split[split.length - 1];
+    if (branch !== "main") return;
     // repository
     //     full_name
+    //     url
+    //     clone url
     // pusher
     //     name
     // head_commit
     //     id
+    //     author
+    //     timestamp
     //     message
     //     commiter
     //         name
@@ -30,8 +38,9 @@ app.post("/", async (req, res) => {
             Author: ${original.head_commit.author.username}
             Message: ${original.head_commit.message}
             Committer: ${original.head_commit.committer.name}`;
-        content = `
-        Repository: ${original.repository.name}
+        content = `Repository: ${original.repository.name}
+        Repo URL: ${original.repository.url}
+        Clone URL: ${original.repository.clone_url}
         Pusher: ${original.pusher.name}
         Head Commit: ${original.head_commit !== null ? headCommitInfo : "Null"}`;
     } catch (err) {
