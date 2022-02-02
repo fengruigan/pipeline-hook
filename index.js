@@ -24,13 +24,16 @@ app.post("/", async (req, res) => {
     let content = "Hi Discord";
     let message = "OK";
     try {
+        let headCommitInfo = `
+            ID: ${original.head_commit.id}
+            Timestamp: ${original.head_commit.timestamp}
+            Author: ${original.head_commit.author.username}
+            Message: ${original.head_commit.message}
+            Committer: ${original.head_commit.committer.name}`;
         content = `
         Repository: ${original.repository.name}
         Pusher: ${original.pusher.name}
-        Head Commit:
-            ID: ${original.head_commit.id}
-            message: ${original.head_commit.message}
-            committer: ${original.head_commit ? original.head_commit.committer.name : "Null"}`;
+        Head Commit: ${original.head_commit !== null ? headCommitInfo : "Null"}`;
     } catch (err) {
         console.log(err);
     }
