@@ -18,6 +18,7 @@ app.post("/", async (req, res) => {
         await axios.post(process.env.DISCORD_HOOK, msg);
     } catch (err) {
         message = "NOT OK";
+        console.log(err);
     }
     res.send(message);
 });
