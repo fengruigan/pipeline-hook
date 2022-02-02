@@ -11,10 +11,15 @@ app.get("/", (req, res) => {
 
 app.post("/", async (req, res) => {
     console.log(req.body);
+    let message = "OK";
     let msg = {};
     msg.content = JSON.stringify(req.body);
-    await axios.post(process.env.DISCORD_HOOK, msg);
-    res.send("OK");
+    try {
+        await axios.post(process.env.DISCORD_HOOK, msg);
+    } catch (err) {
+        message = "NOT OK";
+    }
+    res.send(message);
 });
 
 app.listen(process.env.PORT || 8000, () => {
