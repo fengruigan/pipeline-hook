@@ -11,9 +11,26 @@ app.get("/", (req, res) => {
 
 app.post("/", async (req, res) => {
     console.log(req.body);
+    let original = req.body;
+    // repository
+    //     full_name
+    // pusher
+    //     name
+    // head_commit
+    //     id
+    //     message
+    //     commiter
+    //         name
+    let content = `Repository: ${original.repository.name}
+    Pusher: ${original.pusher.name}
+    Head Commit:
+        ID: ${original.head_commit.id}
+        message: ${original.head_commit.message}
+        commiter: ${original.head_commit.commiter.name}`;
+
     let message = "OK";
     let msg = {};
-    msg.content = JSON.stringify(req.body);
+    msg.content = content;
     try {
         await axios.post(process.env.DISCORD_HOOK, msg);
     } catch (err) {
