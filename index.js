@@ -29,7 +29,7 @@ app.post("/", async (req, res) => {
         Head Commit:
         ID: ${original.head_commit.id}
         message: ${original.head_commit.message}
-        commiter: ${original.head_commit.committer.name}`;
+        committer: ${original.head_commit ? original.head_commit.committer.name : "Null"}`;
     } catch (err) {
         console.log(err);
     }
