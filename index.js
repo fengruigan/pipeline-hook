@@ -21,14 +21,19 @@ app.post("/", async (req, res) => {
     //     message
     //     commiter
     //         name
-    let content = `Repository: ${original.repository.name}
-    Pusher: ${original.pusher.name}
-    Head Commit:
+    let content = "Hi Discord";
+    let message = "OK";
+    try {
+        content = `Repository: ${original.repository.name}
+        Pusher: ${original.pusher.name}
+        Head Commit:
         ID: ${original.head_commit.id}
         message: ${original.head_commit.message}
-        commiter: ${original.head_commit.commiter.name}`;
+        commiter: ${original.head_commit.committer.name}`;
+    } catch (err) {
+        console.log(err);
+    }
 
-    let message = "OK";
     let msg = {};
     msg.content = content;
     try {
