@@ -19,7 +19,6 @@ app.post("/", async (req, res) => {
     // repository
     //     full_name
     //     url
-    //     clone url
     // pusher
     //     name
     // head_commit
@@ -38,9 +37,8 @@ app.post("/", async (req, res) => {
             Author: ${original.head_commit.author.username}
             Message: ${original.head_commit.message}
             Committer: ${original.head_commit.committer.name}`;
-        content = `Repository: ${original.repository.name}
+        content = `Repository: **${original.repository.name}**
         Repo URL: ${original.repository.url}
-        Clone URL: ${original.repository.clone_url}
         Pusher: ${original.pusher.name}
         Head Commit: ${original.head_commit !== null ? headCommitInfo : "Null"}`;
     } catch (err) {
