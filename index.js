@@ -10,12 +10,17 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", async (req, res) => {
-    console.log(req.body);
     let original = req.body;
-    let ref = original.ref;
-    let split = ref.split("/");
-    let branch = split[split.length - 1];
-    if (branch !== "main") return;
+    let ref;
+    try {
+        ref = original.ref;
+        let split = ref.split("/");
+        let branch = split[split.length - 1];
+        if (branch !== "main") return;
+    } catch (err) {
+        console.log(err);
+        return;
+    }
     // repository
     //     full_name
     //     url
