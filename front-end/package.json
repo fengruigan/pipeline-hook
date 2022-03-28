@@ -1,0 +1,48 @@
+{
+  "name": "front-end",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@mui/material": "^5.5.1",
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react": "^12.1.4",
+    "@testing-library/user-event": "^13.5.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "^4.0.3",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "prettier": "prettier -c ./",
+    "lint": "eslint --fix --ext .js ./",
+    "checkstyle": "yarn run lint && yarn run prettier",
+    "start": "react-scripts start",
+    "build": "yarn run checkstyle && react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "eslint-plugin-react": "^7.29.4",
+    "prettier": "^2.6.0",
+    "prop-types": "^15.8.1"
+  },
+  "proxy": "http://localhost:3001"
+}
